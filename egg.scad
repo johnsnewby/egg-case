@@ -9,7 +9,7 @@ translate([length/2,0,0])
 module half_eggshell_with_band(height, thickness, width) {
    difference() {
         half_eggshell(height+thickness, thickness);
-        band(height+6, thickness, width);
+        band(height + thickness + 1, thickness, width);
     }
 }
 
@@ -18,14 +18,14 @@ module half_eggshell(height, thickness) {
     difference() {
         half_egg(height);
         translate([-thickness,0,0]) half_egg(height-(thickness*2));
-        rotate([180,0,0]) peg(height, thickness);
+        rotate([180,0,0]) peg(height, thickness + 1);
     }
 }
 
 module band(height, thickness, width) {
    intersection() {
         half_eggshell(height, thickness/4);
-        translate([-height/2, 0, 0]) rotate([0,90,0]) cylinder(h = width, r  = height, center = true);
+        translate([-(0.4 * height), 0, 0]) rotate([0,90,0]) cylinder(h = width, r  = height, center = true);
        }
 }
 
