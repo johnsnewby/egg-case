@@ -26,7 +26,7 @@ module band(height, thickness, width) {
    intersection() {
         half_eggshell(height, thickness/4);
         translate([-(0.4 * height), 0, 0]) rotate([0,90,0]) cylinder(h = width, r  = height, center = true);
-       }
+    }
 }
 
 module peg(height,thickness) {
